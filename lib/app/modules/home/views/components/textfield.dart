@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class SendTextField extends StatelessWidget {
-  const SendTextField({super.key, required this.controller, this.onSend});
+  const SendTextField(
+      {super.key,
+      required this.controller,
+      this.onSend,
+      required this.focusNode});
   final TextEditingController controller;
   final void Function()? onSend;
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +17,10 @@ class SendTextField extends StatelessWidget {
       children: [
         Expanded(
             child: TextField(
+          focusNode: focusNode,
           controller: controller,
           onSubmitted: (val) => onSend?.call(),
+          autofocus: true,
           decoration:
               const InputDecoration.collapsed(hintText: "SEND A MESSAGE"),
         )),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "936117647518",
+    "project_id": "openaibotflutter",
+    "storage_bucket": "openaibotflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936117647518:android:ef355cd56acbdf0344e38f",
+        "android_client_info": {
+          "package_name": "com.ritic.chatgpt.chatgpt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936117647518-dtiv2q9fuud1err386mkgqlg2o8p3m84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe5rsA-CzEjbZT06zWJAmFAdje-73Luik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936117647518-dtiv2q9fuud1err386mkgqlg2o8p3m84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

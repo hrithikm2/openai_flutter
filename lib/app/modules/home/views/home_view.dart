@@ -32,6 +32,7 @@ class HomeView extends GetView<HomeController> {
               DecoratedBox(
                 decoration: BoxDecoration(color: context.cardColor),
                 child: SendTextField(
+                  focusNode: homeController.focusNode,
                   controller: homeController.sendTextController,
                   onSend: () => homeController.sendMessage('user'),
                 ),

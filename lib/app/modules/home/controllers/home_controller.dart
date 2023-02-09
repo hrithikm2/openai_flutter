@@ -6,6 +6,7 @@ class HomeController extends GetxController {
   ///VARIABLES
   late TextEditingController sendTextController;
   RxList<ChatMessage> chatMessages = <ChatMessage>[].obs;
+  FocusNode focusNode = FocusNode();
   @override
   void onInit() {
     sendTextController = TextEditingController();
@@ -22,5 +23,6 @@ class HomeController extends GetxController {
           user: user,
         ));
     sendTextController.clear();
+    focusNode.requestFocus();
   }
 }
