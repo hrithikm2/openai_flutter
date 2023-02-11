@@ -10,15 +10,18 @@ dependencies:
   get: 4.6.5
   flutter:
     sdk: flutter
-  velocity_x: ^3.6.0
-  auto_size_text: ^3.0.0
+
   chat_gpt_sdk: ^1.0.2+4
-  flutter_dotenv: ^5.0.2
+  cloud_firestore: ^4.3.2
+  firebase_auth: ^4.2.6
   firebase_core: ^2.5.0
   firebase_storage: ^11.0.11
-  firebase_auth: ^4.2.6
-  cloud_firestore: ^4.3.2
   flutter_animate: ^3.1.0
+  flutter_dotenv: ^5.0.2
+  flutter_svg: ^2.0.0+1
+  google_sign_in: ^5.4.4
+  velocity_x: ^3.6.0
+  flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
   flutter_lints: 2.0.1
@@ -30,3 +33,4 @@ flutter:
 
   assets:
     - ".env"
+    - "assets/svgs/."

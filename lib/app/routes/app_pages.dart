@@ -10,7 +10,8 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const initial = Routes.home;
+  static const initial = Routes.login;
+  static const home = Routes.home;
 
   static final routes = [
     GetPage(
@@ -19,7 +20,7 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.LOGIN,
+      name: _Paths.login,
       page: () => const LoginView(),
       binding: LoginBinding(),
     ),
