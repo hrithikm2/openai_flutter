@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:velocity_x/velocity_x.dart' as vx;
 
 class SendTextField extends StatelessWidget {
   const SendTextField(
@@ -20,10 +21,9 @@ class SendTextField extends StatelessWidget {
           focusNode: focusNode,
           controller: controller,
           onSubmitted: (val) => onSend?.call(),
-          autofocus: true,
           decoration:
               const InputDecoration.collapsed(hintText: "SEND A MESSAGE"),
-        )),
+        ).animate().fadeIn()),
         IconButton(icon: const Icon(Icons.send), onPressed: onSend),
       ],
     ).px16();

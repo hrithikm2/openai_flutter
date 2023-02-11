@@ -7,6 +7,8 @@ class HomeController extends GetxController {
   late TextEditingController sendTextController;
   RxList<ChatMessage> chatMessages = <ChatMessage>[].obs;
   FocusNode focusNode = FocusNode();
+  ScrollController scrollController = ScrollController();
+
   @override
   void onInit() {
     sendTextController = TextEditingController();
@@ -16,13 +18,24 @@ class HomeController extends GetxController {
   ///METHODS
   ///send message from client
   void sendMessage(String user) {
-    chatMessages.insert(
-        0,
-        ChatMessage(
-          textData: sendTextController.text,
-          user: user,
-        ));
+    chatMessages.add(ChatMessage(
+      textData: sendTextController.text,
+      user: user,
+    ));
     sendTextController.clear();
     focusNode.requestFocus();
+
+    scrollToBottom();
+  }
+
+  ///automatically scroll to the bottom of list.
+  Future<void> scrollToBottom() async {
+    await Future.delayed(const Duration(milliseconds: 325), () {
+      if (scrollController.hasClients) {
+        scrollController.jumpTo(
+          scrollController.position.maxScrollExtent,
+        );
+      }
+    });
   }
 }

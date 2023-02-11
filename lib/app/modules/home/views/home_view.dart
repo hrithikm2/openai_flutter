@@ -18,16 +18,17 @@ class HomeView extends GetView<HomeController> {
         ),
         body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Flexible(
-                child: Obx(
-                  () => ListView.builder(
-                      reverse: true,
-                      padding: Vx.m8,
-                      itemCount: homeController.chatMessages.length,
-                      itemBuilder: (context, index) =>
-                          homeController.chatMessages[index]),
-                ),
+                child: Obx(() => SingleChildScrollView(
+                      controller: homeController.scrollController,
+                      child: Column(
+                          children: List.generate(
+                              homeController.chatMessages.length,
+                              (index) => homeController.chatMessages[index],
+                              growable: true)),
+                    )),
               ),
               DecoratedBox(
                 decoration: BoxDecoration(color: context.cardColor),
@@ -38,7 +39,7 @@ class HomeView extends GetView<HomeController> {
                 ),
               )
             ],
-          ),
+          ).px16(),
         ));
   }
 }

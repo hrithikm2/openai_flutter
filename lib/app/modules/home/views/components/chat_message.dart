@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ChatMessage extends StatelessWidget {
@@ -25,9 +26,17 @@ class ChatMessage extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Colors.green),
+                    color: Colors.black.withOpacity(0.2)),
                 constraints: const BoxConstraints(maxWidth: 200),
-                child: textData.text.black.align(TextAlign.start).make().p16(),
+                child: textData.text.black
+                    .align(TextAlign.start)
+                    .make()
+                    .p16()
+                    .animate(effects: [
+                  ScaleEffect(
+                    duration: 1.seconds,
+                  )
+                ]),
               ),
             ]),
       ],
