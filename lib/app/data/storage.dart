@@ -6,7 +6,7 @@ class StorageData extends GetxService {
   static void setData(String key, dynamic value) =>
       const FlutterSecureStorage().write(key: key, value: value);
 
-  static Future<String?> getUsername(String key) async {
+  static Future<String?> getByKey(String key) async {
     return await const FlutterSecureStorage().read(key: key) ?? "";
   }
 }

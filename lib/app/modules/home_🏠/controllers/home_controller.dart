@@ -1,30 +1,46 @@
-import 'package:chatgpt/app/modules/home/views/components/chat_message.dart';
+import 'package:chatgpt/app/data/storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../data/db_service.dart';
 
 class HomeController extends GetxController {
   ///VARIABLES
   late TextEditingController sendTextController;
-  RxList<ChatMessage> chatMessages = <ChatMessage>[].obs;
+
   FocusNode focusNode = FocusNode();
   ScrollController scrollController = ScrollController();
 
+  Stream<DocumentSnapshot<Map<String, dynamic>>>? stream;
+
   @override
-  void onInit() {
+  Future<void> onInit() async {
     sendTextController = TextEditingController();
+    getTexts();
+    String uid = await StorageData.getByKey('uid') ?? "";
+    stream = FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .collection('chats')
+        .doc('withBot')
+        .snapshots();
     super.onInit();
   }
 
+  Future<String> getUid() async {
+    return await StorageData.getByKey('uid') ?? "";
+  }
+
   ///METHODS
+
+  ///Retrieve messages from db
+  void getTexts() async {}
+
   ///send message from client
   void sendMessage(String user) {
-    chatMessages.add(ChatMessage(
-      textData: sendTextController.text,
-      user: user,
-    ));
     sendTextController.clear();
     focusNode.requestFocus();
-
     scrollToBottom();
   }
 
@@ -37,5 +53,9 @@ class HomeController extends GetxController {
         );
       }
     });
+  }
+
+  Future<void> uploadTextToDB() async {
+    await DBService.uploadText(sendTextController.text);
   }
 }

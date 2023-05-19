@@ -1,4 +1,4 @@
-import 'package:chatgpt/app/modules/login/views/components/open_ai_x_flutter.dart';
+import 'package:chatgpt/app/modules/login_%F0%9F%94%91/views/components/open_ai_x_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';

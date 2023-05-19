@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:chatgpt/app/data/storage.dart';
-import 'package:chatgpt/app/modules/home/views/home_view.dart';
+import 'package:chatgpt/app/routes/app_pages.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
@@ -29,7 +29,7 @@ class LoginController extends GetxController {
     await FirebaseFirestore.instance.collection('users').doc(uid).set({
       'username': user.user?.displayName ?? "USER",
       'email': user.user?.email ?? "dummyemail"
-    }).then((value) => Get.to(HomeView()));
+    }).then((value) => Get.offAllNamed(Routes.home));
     log('jaga');
   }
 }
